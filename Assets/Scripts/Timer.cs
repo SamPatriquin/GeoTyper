@@ -25,5 +25,15 @@ public class Timer : MonoBehaviour
          return true;
       }
       return false;
-   } 
+   }
+
+   public float GetTimeLeft()
+   {
+      return _timeLeft;
+   }
+
+   public float GetTimeLimit()
+   {
+      return TimeLimit;
+   }
 }

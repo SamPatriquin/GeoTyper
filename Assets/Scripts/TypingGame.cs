@@ -135,7 +135,9 @@ public class TypingGame : MonoBehaviour
 
     private void UpdateScoreAndWpm()
     {
-        wpmDisplay.text = $"{WpmPrefix}{scoreUtil.CalculateWPM().ToString("F1")}";
+        float limit = timer.GetTimeLimit();
+        float timeLeft = timer.GetTimeLeft();
+        wpmDisplay.text = $"{WpmPrefix}{scoreUtil.CalculateWPM(timeLeft, limit).ToString("F1")}";
         scoreDisplay.text = $"{ScorePrefix}{scoreUtil.CalculateScore()}";
     }
 }

@@ -31,14 +31,22 @@ public class ScoreUtility : MonoBehaviour
         return _wpm;
     }
 
-    public float CalculateWPM()
+    public float CalculateWPM(float timeLeft, float timeLimit)
     {
+        float elapsedTime = timeLimit - timeLeft;
+        if ((int) elapsedTime % 2 == 0)
+        {
+            float minutesElapsed = elapsedTime / 60;
+            _wpm = _correctPresses / 5f / minutesElapsed;
+        }
+        /*
         float elapsedTime = (int) Time.fixedTime;
         if (elapsedTime % 2 == 0)
         {
             float minutesElapsed = Time.fixedTime / 60;
             _wpm = _correctPresses / 5f / minutesElapsed;
         }
+        */
         return _wpm;
     }
 
