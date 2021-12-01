@@ -1,6 +1,4 @@
 using System;
-//using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -114,11 +112,6 @@ public class TypingGame : MonoBehaviour
                 SetCurrentWord();
             }
         }
-        else
-        {
-            // make necessary adjustments
-            scoreUtil.IncrementIncorrectPresses();
-        }
     }
 
     private bool IsCorrectLetter(string letter)
@@ -137,7 +130,7 @@ public class TypingGame : MonoBehaviour
     {
         float limit = timer.GetTimeLimit();
         float timeLeft = timer.GetTimeLeft();
-        wpmDisplay.text = $"{WpmPrefix}{scoreUtil.CalculateWPM(timeLeft, limit).ToString("F1")}";
+        wpmDisplay.text = $"{WpmPrefix}{scoreUtil.CalculateWpm(timeLeft, limit):F1}";
         scoreDisplay.text = $"{ScorePrefix}{scoreUtil.CalculateScore()}";
     }
 }
