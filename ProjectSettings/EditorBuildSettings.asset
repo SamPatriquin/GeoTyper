@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Town.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Typing Game.unity
+    guid: baee4a2d44fdb71478dc46ac2bce1ca9
+  - enabled: 1
+    path: Assets/Scenes/State_Game_Scene.unity
+    guid: 5b470a78b7e518f4f906ea8337ec2cbe
+  - enabled: 1
+    path: Assets/Scenes/vocab_scene.unity
+    guid: 59f87a734073e304f8240edaedecbfd2
   m_configObjects: {}

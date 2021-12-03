@@ -13,6 +13,11 @@ public class state_change : MonoBehaviour
     public correct_counter final_correct;
     public clock_script final_time;
     public Sprite end_sprite;
+    private ScoreTracker scoreTracker;
+
+    private void Awake() {
+        scoreTracker = GameObject.Find("ScoreTracker").GetComponent<ScoreTracker>();
+    }
 
     void Update()
     {
@@ -24,10 +29,12 @@ public class state_change : MonoBehaviour
         }
         else
         {
-            //SceneManager.LoadScene("SampleScene");
             final_correct = FindObjectOfType<correct_counter>();
             final_time = FindObjectOfType<clock_script>();
             sprites.sprite = end_sprite;
+            scoreTracker.updateGeoScore(final_correct.correct_done);
+            SceneManager.LoadScene(0);
+
         }
     }
 }

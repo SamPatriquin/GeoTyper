@@ -13,7 +13,7 @@ public class Settings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) & Time.timeScale == 1) {
             if (UI != null) {
                 UI.gameObject.SetActive(true);
             }

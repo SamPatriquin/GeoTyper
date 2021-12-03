@@ -11,6 +11,8 @@ public class GameOverScreen : MonoBehaviour
     [FormerlySerializedAs("WPMDisplay")] public Text wpmDisplay;
     [FormerlySerializedAs("ReplayButton")] public Button replayButton;
     [FormerlySerializedAs("ExitButton")] public Button exitButton;
+    private int score;
+    private float wpm;
     
     // Start is called before the first frame update
     void Start()
@@ -21,10 +23,17 @@ public class GameOverScreen : MonoBehaviour
 
     public void Activate(int score, float wpm)
     {
+        this.score = score;
         screen.SetActive(true);
         Debug.Log($"Score: {score}; WPM: {wpm:F1}");
         scoreDisplay.text = $"Score: {score}";
         wpmDisplay.text = $"WPM: {wpm:F1}";
+        ScoreTracker scoreTracker = GameObject.Find("ScoreTracker").gameObject.GetComponent<ScoreTracker>(); //Bad practice to reference with a string
+        if (scoreTracker != null) {
+            scoreTracker.updateTyperScore(score, wpm);
+            Debug.Log(score);
+            Debug.Log(wpm);
+        }
         if (wpm >= 20)
         {
             message.text = "Good work!";
@@ -37,13 +46,11 @@ public class GameOverScreen : MonoBehaviour
 
     private void ReplayScene()
     {
-        // add method for saving high score later
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void ExitScene()
     {
-        // add method for saving high score later
         SceneManager.LoadScene(0);
     }
 
